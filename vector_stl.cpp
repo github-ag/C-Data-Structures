@@ -1,5 +1,6 @@
 #include <iostream>
 #include<vector>
+#include<algorithm>
 
 using namespace std;
 
@@ -33,5 +34,10 @@ int main()
 
     cout<<"\nmax size->"<<v.max_size();//depends upom the RAM
     cout<<"\ncapacity ->"<<v.capacity();
+    
+    //sorting in the vector
+    sort(v.begin(),v.end());
+    //clearing the whole vector
+    v.clear();
     return 0;
 }
