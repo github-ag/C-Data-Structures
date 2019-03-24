@@ -28,6 +28,14 @@ int main()
     for(int i=0;i<3;i++)
     cout<<arr[i]<<" ";//sorting is done lexographically
     //we can use comparitors to sort the strings on the basis of length.
+    
+    //one important property of strings--->>
+    string str="ABC";
+    str+='}';
+    cout<<str; //output will be ABC} .
+    
+    //this property allow us to get rid of the pointer kept in case of character arrays to enter the character.
+    
 
 
     return 0;
