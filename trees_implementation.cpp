@@ -214,6 +214,7 @@ class pairHB
         int height;
         bool balance;
 };
+pairHB isHeight_balanced(node *root)
 {
     pairHB p;
     if(root==NULL)
@@ -223,12 +224,17 @@ class pairHB
         return p;
     }
     pairHB left,right;
-    left = is_balanced(root->left);
-    right = is_balanced(root->right);
+    left = isHeight_balanced(root->left);
+    right = isHeight_balanced(root->right);
+    p.height = max(left.height,right.height)+1;
     if(left.balance==true&&right.balance==true&&(abs(left.height-right.height)<=1))
-        return true;
+    {
+        
+        p.balance  = true;
+    }
     else
-        return false;
+        p.balance = false;
+    return p;
 
 
 }
