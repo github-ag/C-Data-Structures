@@ -239,6 +239,19 @@ pairHB isHeight_balanced(node *root)
 
 }
 
+node* buildTreeFromArray(int *a , int s,int e)
+{
+    //base case
+    if(s>e)
+        return NULL;
+    //recursive case
+    int mid = (s+e)/2;
+    node *root = new node(a[mid]);
+    root->left = buildTreeFromArray(a,s,mid-1);
+    root->right = buildTreeFromArray(a,mid+1,e);
+    return root;
+}
+
 
 
 int main()
