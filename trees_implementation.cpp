@@ -1,5 +1,6 @@
 #include <iostream>
 #include<queue>
+#include<algorithm>
 
 using namespace std;
 class node
@@ -169,7 +170,7 @@ int sumofall(node *root)
     return temp+root->data;
 }
 
-int diameter(node *root)
+int diameter(node *root)//works with the complexity of O(n^2)
 {
 
     if(root==NULL)
@@ -183,20 +184,27 @@ int diameter(node *root)
 
 }
 //optimized
-pair<int,int> diameterFast(node *root)
+class Pair
 {
-    pair<int,int> p;
+    public:
+    int height;
+    int diameter;
+};
+Pair fastDiameter(node *root)
+{
+    Pair p;
     if(root==NULL)
     {
-        p.first = p.second =0;
+        p.diameter = p.height = 0;
         return p;
     }
-    pair<int,int> left ,right;
-    left = diameterFast(root->left);
-    right = diameterFast(root->right);
-
-    p.first = max(left.first,right.f)
-
+    //otherwise
+    Pair left = fastDiameter(root->left);
+    Pair right = fastDiameter(root->right);
+    
+    p.height = max(left.height,right.height)+1;
+    p.diameter = max(left.height+right.height,max(left.diameter,right.diameter));
+    return p;
 }
 
 
