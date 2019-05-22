@@ -252,7 +252,32 @@ node* buildTreeFromArray(int *a , int s,int e)
     return root;
 }
 
+node *createTreeFromTraversal(int *in,int *pre,int s,int e)//creating a tree from inorder and preorder traversal
+{
+    static int i=0;
+    //property of static varible - it is only initialized once that means every time the function is called it is not initialized.
+    //base case
+    if(s>e)
+        return NULL;
+    //rec case
+    node *root = new node(pre[i]);
+    int index =-1;
+    for(int j=s;j<=e;j++)
+    {
+        if(in[j]==pre[i])
+        {
+            index = j;
+            break;
+        }
+    }
+    i++;
+    root->left = createTreeFromTraversal(in,pre,s,index-1);
+    root->right = createTreeFromTraversal(in,pre,index+1,e);
+    return root;
 
+
+
+}
 
 int main()
 {
