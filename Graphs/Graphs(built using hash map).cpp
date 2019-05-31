@@ -61,6 +61,34 @@ class Graph
             }
         }
     }
+
+    void shortest_path(T src)//calculate the shortest path for unweighted array for all the nodes from the source node.
+    {
+        queue<T> q;
+        map<T,int> distance;
+        for(auto i:adjList)
+        {
+            distance[i.first]=INT_MAX;
+        }
+        q.push(src);
+        distance[src] = 0;
+        while(!q.empty())
+        {
+            T node =q.front();
+            cout<<node<<"-> at a distance "<<distance[node];
+            cout<<endl;
+            q.pop();
+            
+            for(auto neighbour:adjList[node])
+            {
+                if(distance[neighbour]==INT_MAX)
+                {
+                    q.push(neighbour);
+                    distance[neighbour] = distance[node]+1;
+                }
+            }
+        }
+    }
 };
 
 int main()
@@ -75,7 +103,8 @@ int main()
     g.addEdge("prabhu","modi");
     
     //g.print();
-    g.bfs("modi");
+    //g.bfs("modi");
+    g.shortest_path("modi");
     return 0;
 
 }
