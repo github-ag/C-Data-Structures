@@ -92,6 +92,26 @@ class Graph
     }
 };
 
+void dfsHelper(T node,map<T,bool> &visited)
+    {
+            //whenever come to a node mark it visited
+            visited[node] = true;
+            cout<<node<<" ";
+            for(auto neighbor:adjList[node])
+            {
+                if(!visited[neighbor])
+                {
+                    dfsHelper(neighbor,visited);
+                }
+            }
+        }
+void dfs(T src)
+    {
+        map<T,bool> visited;
+        dfsHelper(src,visited);
+
+    }
+
 int main()
 {
     Graph<string>g;
