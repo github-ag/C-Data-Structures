@@ -1,3 +1,4 @@
+//unweighted graph in which all the edges are bidirectional built using array of lists.
 #include<iostream>
 #include<list>
 using namespace std;
