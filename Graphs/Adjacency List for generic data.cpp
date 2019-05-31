@@ -35,6 +35,29 @@ class Graph
             cout<<endl;
         }
     }
+
+    void bfs(T src)//taking the source node 
+    {
+        queue<T> q;
+        map<T,bool> visited;
+        q.push(src);
+        visited[src] = true;
+        while(!q.empty())
+        {
+            T node =q.front();
+            cout<<node<<" ";
+            q.pop();
+            //for the neighbour of the nodes which are not visited
+            for(auto neighbour:adjList[node])
+            {
+                if(!visited[neighbour])
+                {
+                    q.push(neighbour);
+                    visited[neighbour] = true;
+                }
+            }
+        }
+    }
 };
 
 int main()
@@ -48,7 +71,8 @@ int main()
     g.addEdge("yogi","prabhu",false);
     g.addEdge("prabhu","modi",false);
     
-    g.print();
+    //g.print();
+    g.bfs("modi");
     return 0;
 
 }
