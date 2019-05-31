@@ -62,6 +62,7 @@ class Graph
         }
     }
 
+    //Calculating Single Source Shortest Path(SSSP) for unweighted graph.
     void shortest_path(T src)//calculate the shortest path for unweighted array for all the nodes from the source node.
     {
         queue<T> q;
