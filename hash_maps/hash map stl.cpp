@@ -23,7 +23,7 @@ int main()
     cout<<endl<<endl;
 
     //2-bucket iteration
-    for(int i=0;i<mymap.bucket_count();i++)
+    for(unsigned i=0;i<mymap.bucket_count();i++)
     {
         cout<<"bucket"<<i<<"-->";
         //iterate over every linked list
@@ -42,7 +42,7 @@ int main()
     else
     	cout<<"mango doesn't exist";
     //second way
-    if(mymap.count("mango"==0))
+    if(mymap.count("mango")==0)
     	cout<<"mango doesn't exist";
     else
     	cout<<"price of mango is"<<mymap["mango"];
