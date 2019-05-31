@@ -105,10 +105,25 @@ void dfsHelper(T node,map<T,bool> &visited)
                 }
             }
         }
-void dfs(T src)
+int dfs(T src) // return type is int as it would return the number of components
     {
         map<T,bool> visited;
         dfsHelper(src,visited);
+        cout<<endl;
+
+
+
+        //Adding the code for counting the number of connected components in the graph
+        int component =1;
+        for(auto i:adjList)
+        {
+            if(!visited[i.first])
+            {
+                dfsHelper(i.first,visited);
+                component++;
+                cout<<endl;
+            }
+        }
 
     }
 
@@ -122,10 +137,11 @@ int main()
     g.addEdge("modi","yogi");
     g.addEdge("yogi","prabhu");
     g.addEdge("prabhu","modi");
-    
+    g.addEdge("rahul","sonia");
     //g.print();
     //g.bfs("modi");
-    g.shortest_path("modi");
+    cout<<endl;
+    cout<<g.dfs("modi");
     return 0;
 
 }
