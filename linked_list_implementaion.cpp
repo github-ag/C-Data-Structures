@@ -1,5 +1,12 @@
-#include <iostream>
+/* In lists everything is controlles using one pointer named as head
+so node does not contain any functions 
+all the functions are written outside the node class
+and head is passed to every function
+we cannot use template in linked list
+*/
 
+
+#include <iostream>
 using namespace std;
 class node
 {
