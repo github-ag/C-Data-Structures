@@ -28,7 +28,7 @@ class Graph{
         std::list<int>::iterator it;
         bool flag = false;
         for(it = l.begin();it!=l.end();it++){
-            cout<<*it<<"  ";
+            //cout<<*it<<"  ";
             if(*it == child)
             flag = true;
             if(flag==true){
